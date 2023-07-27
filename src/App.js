@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "./index.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Search from "./pages/Search/Search";
+import Show from "./pages/Show/Show";
+import Root from "./components/Root";
+import NotFound from "./pages/NotFound/NotFound";
+import { useState } from "react";
 
 function App() {
+  const [searchDataValue, setSearchDataValue] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      <Routes>
+        <Route
+          path="/"
+          element={<Root setSearchDataValue={setSearchDataValue} />}
         >
-          Learn React
-        </a>
-      </header>
+          <Route
+            path="search"
+            element={<Search searchDataValue={searchDataValue} />}
+          />
+          <Route path="show/:id" element={<Show />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
     </div>
   );
 }

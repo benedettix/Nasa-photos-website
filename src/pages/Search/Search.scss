@@ -1,0 +1,46 @@
+.input-left,
+.input-right {
+  width: 230px;
+  @media (max-width: 768px) {
+    width: 100%;
+
+    margin: 10px 0 !important;
+  }
+}
+.input-right {
+  margin-left: 7px;
+}
+.input-left {
+  margin-right: 7px;
+}
+.error {
+  color: red;
+  margin: 0 auto;
+  width: 350px;
+  text-align: center;
+}
+.buttons__holder {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  button {
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 6px 12px;
+    &:disabled {
+      cursor: not-allowed;
+      border: 1px solid #1976d2;
+      background-color: white;
+      color: #1976d2;
+    }
+  }
+}
+.filter__holder {
+  width: 100%;
+  @media (max-width: 768px) {
+    width: 800px;
+  }
+}
